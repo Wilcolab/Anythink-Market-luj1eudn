@@ -1,0 +1,16 @@
+/**
+ * Converts a string to snake_case.
+ * @param {string} str - The input string to convert.
+ * @returns {string} The snake_case version of the string.
+ */
+const toSnakeCase = (str) => {
+  if (typeof str !== 'string') {
+    return ''; // Error handling: returns empty string for non-string inputs
+  }
+
+  return str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .map(x => x.toLowerCase())
+    .join('_');
+};
+
